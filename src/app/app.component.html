@@ -1,0 +1,19 @@
+<h1>Video call</h1>
+My PeerId: {{mypeerid}}
+<br>
+<label *ngIf="isOtherUserLoggedin" style="float: right;color: green;font-size: 25px;text-transform: uppercase;font-weight: bold;font-family: sans-serif;">Online</label>
+<br>
+<input type="text" [(ngModel)]="otherId" name="otherId">
+<button (click)="connectPeer()">Connect</button>
+<button (click)="emitMsg()" [disabled]="!isOtherUserLoggedin">Sent Message</button>
+<button (click)="call()" [disabled]="!isOtherUserLoggedin">Call</button>
+<!-- <button (click)="answer()">Answer</button> -->
+<br>
+<div style="float: left;">
+    <h3>You</h3>
+    <video #video width="300" height="300" style="border: 1px solid #000;"></video>
+</div>
+<div style="float: left; margin-left: 20px;">
+    <h3>Other</h3>
+    <video #avideo width="300" height="300" style="border: 1px solid #000;"></video>
+</div>
